@@ -1,12 +1,14 @@
 
-const axios = require('axios');
-const FormData = require('form-data');
-const fs = require('fs');
+import axios from "axios"
+import FormData from "form-data";
+import fs from "fs";
+import dotenv from "dotenv";
 
+dotenv.config();
 
 export function removeBackground ({url}) {
 
-    const API_KEY = process.env.REMOVE_BG_API_KEY;
+const API_KEY = process.env.REMOVE_BG_API_KEY;
 
 const formData = new FormData();
 formData.append('size', 'auto');

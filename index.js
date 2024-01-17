@@ -1,6 +1,10 @@
 import express from 'express';
 import OpenAI from 'openai';
+import dotenv from 'dotenv';
+import { uploadImageToCloudinary } from './helpers.js';
 
+
+dotenv.config();
 const app = express();
 app.use(express.json());
 const OPENAI_API_KEY=process.env.OPENAI_API_KEY;
@@ -35,10 +39,18 @@ app.get('/',  (req, res) => {
 app.post('/prompt',async(req, res) => {
     const prompt = req.body.prompt;
     const style = req.body.style;
-    // console.log( req.body);
+    try{
    const imageUrl = await sendPrompt(prompt, style);
-    res.send(imageUrl);
-    // res.send( req.body)
+   const cloudinaryUrl = await uploadImageToCloudinary(imageUrl.url); 
+   console.log(cloudinaryUrl)
+   res.send({
+        url: cloudinaryUrl,
+        caption: imageUrl.caption
+   });}
+   catch(error){
+       console.log(error);
+       res.send(error);
+   } 
 })
 
 
