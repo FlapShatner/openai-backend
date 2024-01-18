@@ -17,19 +17,28 @@ cloudinary.config({
 /////////////////////////
 // Uploads an image file
 /////////////////////////
-export const uploadImage = async (imagePath) => {
+export const uploadImage = async (noBgData) => {
   // Use the uploaded file's name as the asset's public ID and
   // allow overwriting the asset with new versions
   const options = {
     use_filename: true,
     unique_filename: false,
     overwrite: true,
-    background_removal: "cloudinary_ai"
+    resource_type: 'auto'
   }
 
   try {
     // Upload the image
-    const result = await cloudinary.uploader.upload(imagePath, options)
+    // const result = cloudinary.uploader.upload_stream(noBgData, options)
+    const result = await new Promise((resolve) => {
+      cloudinary.uploader.upload_stream(options, (error, result) => {
+        if (result) {
+          resolve(result);
+        } else {
+          console.log(error);
+        }
+      }).end(noBgData);
+    })
     // console.log(result)
     return result.secure_url
   } catch (error) {
