@@ -16,11 +16,10 @@ const openai = new OpenAI({
     apiKey: OPENAI_API_KEY, // This is the default and can be omitted
   });
 
- async function sendPrompt(prompt, style) {
+ async function sendPrompt(prompt) {
     const response = await openai.images.generate({
         model: "dall-e-3",
         prompt: prompt,
-        style: style,
         n: 1,
         size: "1024x1024",
       });
@@ -41,9 +40,9 @@ app.get('/',  (req, res) => {
 
 app.post('/prompt',async(req, res) => {
     const prompt = req.body.prompt;
-    const style = req.body.style;
+    
     try{
-   const imageUrl = await sendPrompt(prompt, style);
+   const imageUrl = await sendPrompt(prompt);
 // const imageUrl = {url:tempUrl}
 //    const noBgData = await removeBackground(imageUrl.url);
    const cloudinaryUrl = await uploadImageToCloudinary(imageUrl.url); 
