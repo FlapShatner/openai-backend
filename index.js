@@ -39,13 +39,15 @@ app.get('/',  (req, res) => {
 });
 
 app.post('/prompt',async(req, res) => {
-    const prompt = req.body.prompt;
+    const data = req.body;
+    console.log(data);
+    const {prompt, fullPrompt, style} = data;
     
     try{
-   const imageUrl = await sendPrompt(prompt);
+   const imageUrl = await sendPrompt(fullPrompt);
 // const imageUrl = {url:tempUrl}
 //    const noBgData = await removeBackground(imageUrl.url);
-   const cloudinaryUrl = await uploadImageToCloudinary(imageUrl.url); 
+   const cloudinaryUrl = await uploadImageToCloudinary(imageUrl.url, prompt, style); 
    console.log(cloudinaryUrl)
    res.send({
         url: cloudinaryUrl,

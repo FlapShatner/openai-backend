@@ -17,14 +17,16 @@ cloudinary.config({
 /////////////////////////
 // Uploads an image file
 /////////////////////////
-export const uploadImage = async (url) => {
+export const uploadImage = async (url, prompt, style) => {
   // Use the uploaded file's name as the asset's public ID and
   // allow overwriting the asset with new versions
+  console.log("uploading image", url, prompt, style)
   const options = {
     use_filename: false,
     unique_filename: true,
     overwrite: false,
-    resource_type: 'auto'
+    resource_type: 'auto',
+    context: `prompt=${prompt}|style=${style}`,
   }
 
   try {
