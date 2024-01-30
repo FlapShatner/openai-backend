@@ -2,6 +2,7 @@ import express from 'express';
 import OpenAI from 'openai';
 import dotenv from 'dotenv';
 import { uploadImageToCloudinary } from './helpers.js';
+import { getSuggest } from './helpers.js';
 // import { removeBackground } from './bg.js';
 
 // const tempUrl = 'https://oaidalleapiprodscus.blob.core.windows.net/private/org-GYTkaS8Qcl0h8878at0BEe62/user-zDZWFfDMaIQWNkVU5As8LGvF/img-idThbLwRpsXuBMUfKLGyxN7t.png?st=2024-01-18T17%3A19%3A03Z&se=2024-01-18T19%3A19%3A03Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2024-01-18T16%3A40%3A01Z&ske=2024-01-19T16%3A40%3A01Z&sks=b&skv=2021-08-06&sig=kf4f09vFeVG%2BUitQ2qdmyHPz6bw6g4aAtO2eakLZhjU%3D'
@@ -26,6 +27,7 @@ const openai = new OpenAI({
       console.log(response.data)
       const data = response.data;
       const url = data[0].url;
+  
       const urlWithCaption = {
             url: url,
             caption: prompt
@@ -57,6 +59,14 @@ app.post('/prompt',async(req, res) => {
        console.log(error);
        res.send(error);
    } 
+})
+
+app.post('/suggest', async (req, res) => {
+    const data = req.body;
+    const {prompt} = data;
+    const suggestions = await getSuggest(prompt);
+    res.send(suggestions);
+
 })
 
 
