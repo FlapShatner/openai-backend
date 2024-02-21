@@ -27,3 +27,4 @@ export const getSuggest = async (prompt) => {
 
     return suggestions;
 }
+

@@ -1,0 +1,22 @@
+{
+  "content": "[2835824365] a squirrel skateboarding",
+  "id": "1209984863978000404",
+  "uri": "https://cdn.discordapp.com/attachments/1016373031741968479/1209984863487393872/flapshatner_2835824365_a_squirrel_skateboarding_8aebe7dc-6bc6-4537-b345-90fc47748dff.png?ex=65e8e937&is=65d67437&hm=58b59dff041681725fa04abc97470b996401f6da8fe8b8f5bdfdca73bcabfd1d&",
+  "proxy_url": "https://media.discordapp.net/attachments/1016373031741968479/1209984863487393872/flapshatner_2835824365_a_squirrel_skateboarding_8aebe7dc-6bc6-4537-b345-90fc47748dff.png?ex=65e8e937&is=65d67437&hm=58b59dff041681725fa04abc97470b996401f6da8fe8b8f5bdfdca73bcabfd1d&",
+  "flags": 0,
+  "hash": "8aebe7dc-6bc6-4537-b345-90fc47748dff",
+  "progress": "done",
+  "options": [
+    { "type": 2, "style": 2, "label": "U1", "custom": "MJ::JOB::upsample::1::8aebe7dc-6bc6-4537-b345-90fc47748dff" },
+    { "type": 2, "style": 2, "label": "U2", "custom": "MJ::JOB::upsample::2::8aebe7dc-6bc6-4537-b345-90fc47748dff" },
+    { "type": 2, "style": 2, "label": "U3", "custom": "MJ::JOB::upsample::3::8aebe7dc-6bc6-4537-b345-90fc47748dff" },
+    { "type": 2, "style": 2, "label": "U4", "custom": "MJ::JOB::upsample::4::8aebe7dc-6bc6-4537-b345-90fc47748dff" },
+    { "type": 2, "style": 2, "label": "🔄", "custom": "MJ::JOB::reroll::0::8aebe7dc-6bc6-4537-b345-90fc47748dff::SOLO" },
+    { "type": 2, "style": 2, "label": "V1", "custom": "MJ::JOB::variation::1::8aebe7dc-6bc6-4537-b345-90fc47748dff" },
+    { "type": 2, "style": 2, "label": "V2", "custom": "MJ::JOB::variation::2::8aebe7dc-6bc6-4537-b345-90fc47748dff" },
+    { "type": 2, "style": 2, "label": "V3", "custom": "MJ::JOB::variation::3::8aebe7dc-6bc6-4537-b345-90fc47748dff" },
+    { "type": 2, "style": 2, "label": "V4", "custom": "MJ::JOB::variation::4::8aebe7dc-6bc6-4537-b345-90fc47748dff" }
+  ],
+  "width": 2048,
+  "height": 2048
+}
